@@ -24,7 +24,7 @@ env:
 
 jobs:
   rdp-session:
-    
+    runs-on: windows-latest
     timeout-minutes: 360
 
     steps:
@@ -454,8 +454,8 @@ jobs:
           }
           
           if (-not $cacheWorking) {
-            Write-Host "Installing openclaw@latest fresh..."
-            npm install -g openclaw@latest
+            Write-Host "Installing openclaw@2026.2.22 fresh..."
+            npm install -g openclaw@2026.2.22
           }
           
           $null = cmd /c "icacls `"$rdpUserHome\.npm-global`" /grant rdpuser:(OI)(CI)F /T /Q 2>&1"
