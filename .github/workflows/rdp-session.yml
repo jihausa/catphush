@@ -19,12 +19,12 @@ on:
     types: [chain-rdp]
 
 env:
-  CHAIN_TRIGGER_MINUTES: 340   # Fire chain dispatch at this many minutes from job start
+  CHAIN_TRIGGER_MINUTES: 335   # Fire chain dispatch at this many minutes from job start
   SAVE_INTERVAL_MINUTES: 60    # Periodic secret saves during keepalive
 
 jobs:
   rdp-session:
-    
+    runs-on: windows-latest
     timeout-minutes: 360
 
     steps:
@@ -454,8 +454,8 @@ jobs:
           }
           
           if (-not $cacheWorking) {
-            Write-Host "Installing openclaw@2026.2.22 fresh..."
-            npm install -g openclaw@2026.2.22
+            Write-Host "Installing openclaw@2026.2.21 fresh..."
+            npm install -g openclaw@2026.2.21
           }
           
           $null = cmd /c "icacls `"$rdpUserHome\.npm-global`" /grant rdpuser:(OI)(CI)F /T /Q 2>&1"
